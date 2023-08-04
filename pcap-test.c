@@ -3,11 +3,6 @@
 #include <stdio.h>
 #define ETHER_ADDR_LEN 6
 #define LIBNET_LIL_ENDIAN 1
-void usage()
-{
-	printf("syntax: pcap-test <interface>\n");
-	printf("sample: pcap-test wlan0\n");
-}
 
 struct libnet_ipv4_hdr
 {
@@ -111,6 +106,12 @@ typedef struct
 
 Param param = {
 	.dev_ = NULL};
+
+void usage()
+{
+	printf("syntax: pcap-test <interface>\n");
+	printf("sample: pcap-test wlan0\n");
+}
 
 bool parse(Param *param, int argc, char *argv[])
 {
