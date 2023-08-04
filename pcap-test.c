@@ -184,7 +184,8 @@ int main(int argc, char *argv[])
         	printf("%d", (ip >> (i * 8)) & 0xFF);
 			if (i != 0) printf(".");
    		}
-    	printf("\n");
+    		
+		printf("\n");
 		unsigned long ipv4_size = sizeof(struct libnet_ipv4_hdr);
 		struct libnet_tcp_hdr *tcp_hdr = (struct libnet_tcp_hdr *)(ether_size + ipv4_size + packet);
 		printf("source port : %d",ntohs(tcp_hdr->th_sport));
@@ -192,7 +193,7 @@ int main(int argc, char *argv[])
 		printf("\n");
 		unsigned long tcp_hdr_size = sizeof(struct libnet_tcp_hdr);
 
-        unsigned long headers_size = header->caplen -ntohs(ipv4_hdr->ip_len) +
+        	unsigned long headers_size = header->caplen -ntohs(ipv4_hdr->ip_len) +
 		ether_size + 
 		ipv4_size + 
 		tcp_hdr->th_off*4;
