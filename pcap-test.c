@@ -199,15 +199,11 @@ int main(int argc, char *argv[])
 		ipv4_size + 
 		tcp_hdr->th_off*4;
 
-        const unsigned char *data = packet + headers_size;
+        	const unsigned char *data = packet + headers_size;
 		printf("Data (%ld bytes) : ",headers_size);
-    	for (int i = 0; i < headers_size; i++) {
-        	printf("%02x ", data[i]);
-			
-    	}
-    	printf("\n");
-
+    		for (int i = 0; i < headers_size; i++) 
+        		printf("%02x ", data[i]);
+    		printf("\n");
 	}
-
 	pcap_close(pcap);
 }
